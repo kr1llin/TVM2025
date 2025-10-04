@@ -1,3 +1,58 @@
 Arithmetic {
-    // write rules here
+  Exp = AddExp
+  
+  AddExp = 
+    | MulExp AddExp_right*
+  
+  AddExp_right =
+    | "+" MulExp
+    | "-" MulExp
+  
+  MulExp = 
+    | Primary MulExp_right*
+  
+  MulExp_right =
+    | "*" Primary
+    | "/" Primary
+  
+  Primary =
+    | number
+    | variable
+    | "-" Primary  -- neg
+    | "(" Exp ")"  -- paren
+  
+  number = digit+
+  variable = letter (letter | digit)*
 }
+
+// Arithmetic {
+// Exp = 
+// 	| PlusExp
+        
+// PlusExp = 
+//     | Plus
+//     | Minus
+//     | MulExp
+
+// Plus = PlusExp "+" MulExp
+// Minus = PlusExp "-" MulExp
+
+// MulExp =
+//     | Mul
+//     | Div
+//     | Primary
+
+// Mul = MulExp "*" Primary
+// Div = MulExp "/" Primary
+
+// Primary =
+// 	| Par
+//    | Neg
+//    | variable
+//    | number
+   
+//  Neg = "-" Exp
+// Par = "(" Exp ")"
+// variable = letter(alnum)*
+// number = digit+
+// }

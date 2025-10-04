@@ -5,7 +5,18 @@ export const addMulSemantics: AddMulSemantics = grammar.createSemantics() as Add
 
 
 const addMulCalc = {
-/// write the action rules here
+    Exp: (expr) => expr.calculate(),
+    PlusExp: (expr) => expr.calculate(),
+    MulExp: (expr) => expr.calculate(),
+    Plus: (a,_,b) => a.calculate() + b.calculate(),
+    Mul: (a,_,b) => a.calculate() * b.calculate(),
+    Factor: (expr) => expr.calculate(),
+    Par: (__, expr, _) => expr.calculate(),
+    number: (digits) => {
+        const numStr = digits.sourceString;
+        return parseInt(numStr, 10);
+    },
+
 } satisfies AddMulActionDict<number>
 
 addMulSemantics.addOperation<Number>("calculate()", addMulCalc);

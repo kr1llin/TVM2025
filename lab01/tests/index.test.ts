@@ -18,8 +18,7 @@ describe('testing addition and multiplication', () => {
     test("Tabs are permitted in the addition", 4, evaluate, 42, "7\t+35");
     test("Newlines are permitted in the addition", 4, evaluate, 42, `
         35  +
-        7`);
-    test("Multiple additions are valid", 3, evaluate, 42, "5+4+3+2+1+2+3+4+5+6+7");
+        7`);    test("Multiple additions are valid", 3, evaluate, 42, "5+4+3+2+1+2+3+4+5+6+7");
     
     test("Multiplication is a valid expression", 3, evaluate, 42, "6*7");
     test("Incomplete multiplication is invalid", 3, evaluate, SyntaxError, "42*");

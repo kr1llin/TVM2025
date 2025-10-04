@@ -40,14 +40,13 @@ describe('testing subtraction and division', () => {
     test("Division by zero yields Error", 3, evaluate, Error, "8/0");
 });
 describe('testing unary negation', () => {
-    test("unary minus is supported", 3, evaluate, 42, "43+-1");
-    test("double unary minus is supported", 4, evaluate, 42, "41--1");
+    test("negation is supported in addition", 3, evaluate, 42, "43+-1");
+    test("negation is supported in subtraction", 4, evaluate, 42, "41--1");
 });
 describe('testing variables', () => {
     test("variables can be used", 3, evaluate, 42, "x+1", {x: 41});
     test("undefined variables yield NaN", 3, evaluate, NaN, "x+y", {x: 41});
     test("Dividing undefined by zero yields Error", 3, evaluate, Error, "x/0");
-
 });
 
 describe('testing left-associativity of the grammar', () => {

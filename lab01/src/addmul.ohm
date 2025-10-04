@@ -1,3 +1,23 @@
 AddMul {
- // Write the rules here
+Exp = 
+	| PlusExp
+        
+PlusExp = 
+    | Plus
+    | MulExp
+
+Plus = MulExp "+" PlusExp
+
+MulExp =
+    | Mul
+    | Factor
+
+Mul = Factor "*" MulExp
+
+Factor =
+   | Par
+   | number
+   
+Par = "(" Exp ")"
+number = digit+
 }
