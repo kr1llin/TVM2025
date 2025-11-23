@@ -39,7 +39,6 @@ describe("Structural tests", ()=>{
 });
 
 
-
 async function deriveAndCalculate(source: string, varName: string, ...args:number[]): Promise<number>
 {
     let expr = parseExpr(source);
